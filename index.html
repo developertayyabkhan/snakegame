@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Snake Game</h1>
+        <p>Eat, grow, and beat your best score.</p>
+      </header>
+
+      <section id="menuScreen" class="menu-container active" aria-label="Main menu">
+        <div class="menu-card">
+          <h2>Choose Your Challenge</h2>
+          <p>Pick a difficulty and start playing.</p>
+
+          <div class="difficulty-options">
+            <div class="difficulty-card" data-difficulty="easy">
+              <h3>Easy</h3>
+              <p>Relaxed pace and forgiving controls.</p>
+            </div>
+            <div class="difficulty-card active" data-difficulty="medium">
+              <h3>Medium</h3>
+              <p>Balanced speed for steady play.</p>
+            </div>
+            <div class="difficulty-card" data-difficulty="hard">
+              <h3>Hard</h3>
+              <p>Fast reflexes and quick decisions.</p>
+            </div>
+          </div>
+
+          <div class="settings-options">
+            <div class="setting-item">
+              <label for="soundToggle">Sound Effects</label>
+              <input type="checkbox" id="soundToggle" checked />
+            </div>
+            <div class="setting-item">
+              <label for="wallToggle">Wall Collision</label>
+              <input type="checkbox" id="wallToggle" checked />
+            </div>
+            <div class="setting-item">
+              <label for="gridToggle">Show Grid</label>
+              <input type="checkbox" id="gridToggle" />
+            </div>
+          </div>
+
+          <div id="leaderboardList" class="leaderboard-content" aria-live="polite"></div>
+
+          <div class="menu-buttons">
+            <button id="startGameBtn" class="btn btn-primary">Start Game</button>
+            <button id="showLeaderboardBtn" class="btn btn-secondary">Leaderboard</button>
+            <button id="howToPlayBtn" class="btn btn-info">How To Play</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="game-container" aria-label="Snake gameplay">
+        <div class="game-info">
+          <div class="info-box">
+            <div>
+              <span class="player-label">Player</span>
+              <span id="playerName">Player 1</span>
+            </div>
+          </div>
+          <div class="info-box">
+            <div>
+              <span class="player-label">Score</span>
+              <span id="scoreDisplay" class="score">0</span>
+            </div>
+          </div>
+          <div class="info-box">
+            <div>
+              <span class="player-label">Length</span>
+              <span id="lengthDisplay" class="length">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="gameCanvas" width="480" height="480"></canvas>
+
+          <div id="gameOverlay" class="game-overlay">
+            <div class="overlay-content">
+              <h2 id="overlayTitle">Game Over</h2>
+              <p id="overlayMessage">Your score: 0</p>
+              <div class="overlay-buttons">
+                <button id="resumeBtn" class="btn btn-primary">Play Again</button>
+                <button id="menuBtn" class="btn btn-dark">Main Menu</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls-info">
+          <div>
+            <h4>Controls</h4>
+            <p>Arrow keys or WASD to move.</p>
+          </div>
+          <div>
+            <h4>Goal</h4>
+            <p>Collect food and avoid crashing.</p>
+          </div>
+        </div>
+
+        <div class="game-stats">
+          <p>Difficulty: <span id="difficultyLabel">Medium</span></p>
+          <p>Best: <span id="bestScore">0</span></p>
+          <p>Status: <span id="statusLabel">Ready</span></p>
+        </div>
+
+        <div class="menu-buttons">
+          <button id="pauseBtn" class="btn btn-warning">Pause</button>
+          <button id="restartBtn" class="btn btn-secondary">Restart</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
